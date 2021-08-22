@@ -72,10 +72,3 @@ $child = new ChildGenerator3();
 $value = $main->handle($child);
 var_dump($value);
 //Fatal error: Uncaught TypeError: Solid\Examples\LSP\Main::handle(): Return value must be of type int, array returned in lsp.php:50 Stack trace: #0 lsp.php(70): Solid\Examples\LSP\Main->handle() #1 {main} thrown in lsp.php on line 50
-
-
-
-
-
-
-
