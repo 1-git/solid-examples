@@ -32,15 +32,20 @@ interface SaveImageInterface {
     public function save(string $path);
 }
 
-class  SaveBpm {
+abstract class SaveImageBase implements SaveImageInterface {
+    abstract public function save(string $path);
+    //Some functionality
+}
+
+class SaveBpm extends SaveImageBase {
     public function save(string $path){
     }
 }
-class  SaveJpg {
+class SaveJpg extends SaveImageBase  {
     public function save(string $path){
     }
 }
-class  SavePng {
+class SavePng extends SaveImageBase  {
     public function save(string $path){
     }
 }
