@@ -2,6 +2,8 @@
 
 namespace Solid\Examples\LSP;
 
+// Changed type of input or output or added Exception
+
 class BaseGenerator
 {
     public function generate($value)
@@ -72,3 +74,7 @@ $child = new ChildGenerator3();
 $value = $main->handle($child);
 var_dump($value);
 //Fatal error: Uncaught TypeError: Solid\Examples\LSP\Main::handle(): Return value must be of type int, array returned in lsp.php:50 Stack trace: #0 lsp.php(70): Solid\Examples\LSP\Main->handle() #1 {main} thrown in lsp.php on line 50
+
+
+//We can add more common function (make more abstract) which will control methods from child classes
+
