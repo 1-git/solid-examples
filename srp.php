@@ -2,6 +2,10 @@
 
 namespace Solid\Examples\SRP;
 
+###############################################
+############ PROBLEM 1 - GOD OBJECT ###########
+###############################################
+
 class Car {
     public function startEngine()
     {
@@ -20,24 +24,95 @@ class Car {
     }
 }
 
-//Splitted classes
+###############################################
+### PROBLEM 2 - LOGIC OVER DIFFERENT CLASSES ##
+###############################################
 
-class CarEngine {
+class Starter {
     public function startEngine()
     {
     }
-
-    public function stopEngine()
+    public function otherMethod()
     {
     }
 }
 
-class CarRadio {
+class RepairService {
+    public function stopEngine()
+    {
+    }
+    public function otherMethod()
+    {
+    }
+}
+
+class RadioMarket {
     public function turnOnRadio()
     {
     }
 
     public function turnOffRadio()
     {
+    }
+
+    public function otherMethod()
+    {
+    }
+}
+
+###############################################
+################## SOLUTION ###################
+###############################################
+
+//Splitted classes
+
+class CarEngine {
+    public function startEngine()
+    {
+        //Code here
+    }
+    public function stopEngine()
+    {
+        //Code here
+    }
+}
+
+class CarRadio {
+    public function turnOnRadio()
+    {
+        //Code here
+    }
+    public function turnOffRadio()
+    {
+        //Code here
+    }
+}
+
+//We can also add common class
+class CarCommon {
+    protected $carEngine;
+    protected $carRadio;
+    public function __construct(CarEngine $engine, CarRadio $radio)
+    {
+        $this->engine = $engine;
+        $this->radio = $radio;
+    }
+
+    public function startEngine()
+    {
+        $this->radio->startEngine();
+    }
+    public function stopEngine()
+    {
+        $this->radio->stopEngine();
+    }
+
+    public function turnOnRadio()
+    {
+        $this->radio->turnOnRadio();
+    }
+    public function turnOffRadio()
+    {
+        $this->radio->turnOffRadio();
     }
 }
