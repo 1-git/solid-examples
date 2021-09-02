@@ -2,6 +2,9 @@
 
 namespace Solid\Examples\LSP;
 
+//Объекты в программе должны быть заменяемыми на экземпляры их подтипов без изменения правильности выполнения программы
+//Производный класс должен быть взаимозаменяем с родительским классом.
+
 // Changed type of input or output or added Exception
 
 class BaseGenerator
